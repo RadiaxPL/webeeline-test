@@ -5,7 +5,6 @@ namespace App\Repositories\Implementations;
 use App\Models\People;
 use App\Repositories\Interfaces\IPeopleRepository;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
 
 class PeopleRepository implements IPeopleRepository
 {
@@ -17,8 +16,8 @@ class PeopleRepository implements IPeopleRepository
         return $this->people->all();
     }
 
-    public function find(int $id): ?Model
+    public function find(int $id): ?People
     {
-        return $this->people->find($id);
+        return $this->people->find($id, ['name', 'surname']);
     }
 }
