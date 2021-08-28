@@ -21,4 +21,5 @@ Route::get('/', function () {
 Route::get('/name', [PeopleController::class, 'index']);
 
 Route::get('/name/{id}', [PeopleController::class, 'show'])
-    ->whereNumber('id');
+    ->whereNumber('id')
+    ->middleware('people.restrict_access_to_specific_ids');
