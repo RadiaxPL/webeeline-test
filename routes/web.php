@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PeopleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/name', [PeopleController::class, 'index']);
+
+Route::get('/name/{id}', [PeopleController::class, 'show'])
+    ->whereNumber('id');
